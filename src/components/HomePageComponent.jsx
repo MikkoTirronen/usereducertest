@@ -11,12 +11,47 @@ export default function HomePageComponent() {
   return (
     <>
       <h1>LogisticsProject</h1>
-      {console.log(state.settings.shiftColors)}
+    
       <ScheduleWrapper>
-        {/* <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
-        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent> */}
-          </ScheduleWrapper>
-          <DayComponent shift={"A"}></DayComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+      </ScheduleWrapper>
+      <ScheduleWrapper>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+      </ScheduleWrapper>
+      <ScheduleWrapper>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+      </ScheduleWrapper>
+      <ScheduleWrapper>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+      </ScheduleWrapper>
+      <ScheduleWrapper>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+        <WeekComponent data={state.schedule[0].shifts[0].data}></WeekComponent>
+      </ScheduleWrapper>
     </>
   );
 }

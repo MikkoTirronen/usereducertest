@@ -18,6 +18,10 @@ export const INITIALSTATE = {
         color: "#008000",
       },
       {
+        shift: "E",
+        color: "#008000",
+      },
+      {
         shift: "",
         color: "whitesmoke",
       },
