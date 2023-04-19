@@ -1,7 +1,7 @@
-import React, { useReducer} from "react";
+import React from "react";
 import DayComponent from "./DayComponent";
 import styled from "styled-components";
-import { shiftReducer,INITIALSTATE } from "../shiftReducer";
+
 
 export default function WeekComponent({ data }) {
    

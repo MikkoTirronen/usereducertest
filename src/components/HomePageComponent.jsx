@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import styled from "styled-components";
-import DayComponent from "./DayComponent";
+
 import WeekComponent from "./WeekComponent";
 import { INITIALSTATE, shiftReducer } from "../shiftReducer";
 
