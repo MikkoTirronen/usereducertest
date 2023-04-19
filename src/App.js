@@ -1,25 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import DayComponent from './components/DayComponent';
+import WeekComponent from './components/WeekComponent';
+import styled from 'styled-components';
+import HomePageComponent from './components/HomePageComponent';
+import { useReducer } from 'react';
+
 
 function App() {
+  const data = [
+    { day: "monday", shift: "A" },
+    { day: "tuesday", shift: "A" },
+    { day: "wednesday", shift: "A" },
+    { day: "thursday", shift: "A" },
+    { day: "friday", shift: "A" },
+    { day: "saturday", shift: "" },
+    { day: "sunday", shift: "" },
+  ];
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+<HomePageComponent></HomePageComponent>
+    </>
   );
 }
-
 export default App;
