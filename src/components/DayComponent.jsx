@@ -53,7 +53,7 @@ position: relative;
 `;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
-  height: auto;
+  height: 100%;
   width: auto;
   border-style: solid;
   text-align: center;
@@ -81,7 +81,7 @@ const EditWindow = styled.div`
   height: ${(props) => (props.open ? "800%" : "0")};
   background-color: ${(props) => props.inputColor || "darkgrey"};
   z-index: 20;
-  
+  font-size: 1vw;
   overflow: hidden;
   transform: all 0.3s;
 `;

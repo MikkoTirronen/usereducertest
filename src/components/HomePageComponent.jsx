@@ -9,7 +9,9 @@ export default function HomePageComponent() {
 
   return (
     <>
-      <h1>LogisticsProject</h1>
+      <HeaderContainer>
+        <h1>LogisticsProject</h1>
+      </HeaderContainer>
       <Container>
         <ScheduleWrapper>
           <WeekComponent
@@ -135,13 +137,18 @@ export default function HomePageComponent() {
     </>
   );
 }
-const ScheduleWrapper = styled.div`
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-
-`;
+const ScheduleWrapper = styled.div``;
 const Container = styled.div`
   display: grid;
+  text-align: center;
+  margin: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 90.7vw;
+  height: 90.3vh;
+  grid-column-gap: 1vw;
+  grid-row-gap: 1vh;
+`;
+const HeaderContainer = styled.div`
+  text-align: center;
   width: 100vw;
-  height: 100vh;
 `;

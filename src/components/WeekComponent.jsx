@@ -13,7 +13,6 @@ export default function WeekComponent({ data }) {
 }
 const Container = styled.div`
   display: grid;
-  
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 100%;
 `;
