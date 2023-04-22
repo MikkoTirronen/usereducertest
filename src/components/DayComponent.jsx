@@ -10,30 +10,29 @@ export default function DayComponent({ shift }) {
     return newColor;
   }
   const [open, setOpen] = useState("");
-    function handleEditToggle(e) {
-        e.preventDefault();
+  function handleEditToggle(e) {
+    e.preventDefault();
     open ? setOpen(!open) : setOpen(true);
     return open;
-    }
-    const [shiftChange, setShiftChange] = useState("")
+  }
+  const [shiftChange, setShiftChange] = useState("");
 
-    function changeShift(){
-        console.log("CurrentShift: "+shiftChange)
-
-    }
+  function changeShift() {
+    console.log("CurrentShift: " + shiftChange);
+  }
   return (
     <Container>
       <ShiftContainer inputColor={getColor(`${shift}`, state.settings)}>
-        <button onClick={handleEditToggle}>{shift}</button>
+        <StyledButton onClick={handleEditToggle}>{shift}</StyledButton>
       </ShiftContainer>
-      <EditWindow
-              open={open}
-              inputColor={getColor(`${shift}`, state.settings)}
-      >
+      <EditWindow open={open} inputColor={getColor(`${shift}`, state.settings)}>
         <Heading>Edit</Heading>
         <p>Current shift: {shift}</p>
         <p>Change shift to: </p>
-              <EditShift value={shiftChange} onChange={(e) => setShiftChange(e.target.value)}>
+        <EditShift
+          value={shiftChange}
+          onChange={(e) => setShiftChange(e.target.value)}
+        >
           <option value="">Choose Shift</option>
           {state.settings.shiftColors.map((item) => {
             return <option value={item.shift}>{item.shift}</option>;
@@ -48,20 +47,19 @@ export default function DayComponent({ shift }) {
 }
 
 const Container = styled.div`
-  position: relative;
+position: relative;
+  width: 100%;
+  height: 100%;
 `;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
-  height: 30px;
-  width: 30px;
+  height: auto;
+  width: auto;
   border-style: solid;
   text-align: center;
   font-weight: 800;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 1em;
-  padding-left: 2px;
-  padding-right: 4px;
-  font-size: 1.5em;
+
+  margin: 0;
   z-index: 20;
 `;
 const EditShift = styled.select`
@@ -79,17 +77,22 @@ const EditWindow = styled.div`
   text-align: center;
   margin: 0;
   color: #0b0b0b;
-  width: 200px;
-  height: ${(props) => (props.open ? "200px" : "0")};
+  width: 500%;
+  height: ${(props) => (props.open ? "800%" : "0")};
   background-color: ${(props) => props.inputColor || "darkgrey"};
   z-index: 20;
-  font-size: 1em;
-  display: block;
-
+  
   overflow: hidden;
   transform: all 0.3s;
 `;
 
 const Heading = styled.h4`
   margin: 0;
+`;
+const StyledButton = styled.button`
+  background: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 1vw;
 `;
