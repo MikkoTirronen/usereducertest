@@ -6,7 +6,7 @@ export default function WeekComponent({ data }) {
   return (
     <Container>
       {data.map((item) => {
-        return <DayComponent shift={item.shift}></DayComponent>;
+          return <DayComponent shift={item.shift}></DayComponent>;
       })}
     </Container>
   );

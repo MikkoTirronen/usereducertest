@@ -608,21 +608,24 @@ export default function HomePageComponent() {
             data={state.schedule[0].shifts[0].data}
           ></WeekComponent>
         </ScheduleWrapper> */}
-              <SixWeekComponent week={state.schedule[0].shifts[0].data}></SixWeekComponent>
+        <SixWeekComponent week={state.schedule[0].shifts}></SixWeekComponent>
+        <SixWeekComponent week={state.schedule[1].shifts}></SixWeekComponent>
+        <SixWeekComponent week={state.schedule[2].shifts}></SixWeekComponent>
+        <SixWeekComponent week={state.schedule[3].shifts}></SixWeekComponent>
       </Container>
     </>
   );
 }
 const ScheduleWrapper = styled.div``;
 const Container = styled.div`
-  display: grid;
+  /* display: grid;
   text-align: center;
   margin: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 90.7vw;
   height: 90.3vh;
   grid-column-gap: 1vw;
-  grid-row-gap: 1vh;
+  grid-row-gap: 1vh; */
 `;
 const HeaderContainer = styled.div`
   text-align: center;
