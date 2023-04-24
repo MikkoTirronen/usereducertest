@@ -70,20 +70,22 @@ const EditShift = styled.select`
 
 const EditWindow = styled.div`
   position: absolute;
-  border: 1px solid gray;
   border-top: none;
   opacity: ${(props) => (props.open ? "1" : "0")};
   padding-top: 0px;
   text-align: center;
-  margin: 0;
+  margin: 0px;
   color: #0b0b0b;
   width: 500%;
-  height: ${(props) => (props.open ? "800%" : "0")};
+  height: ${(props) => (props.open ? "fit-content" : "0")};
   background-color: ${(props) => props.inputColor || "darkgrey"};
   z-index: 20;
   font-size: 1vw;
   overflow: hidden;
   transform: all 0.3s;
+  translate: 3px -3px;
+  padding-left: 1vw;
+  padding-right: 1vw;
 `;
 
 const Heading = styled.h4`
