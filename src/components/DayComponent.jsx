@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 import styled from "styled-components";
 import { shiftReducer, INITIALSTATE } from "../shiftReducer";
 
-export default function DayComponent({ shift }) {
+export default function DayComponent({ shift, employeeIndex }) {
   const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
   function getColor(shift, settings) {
     var color = [...settings.shiftColors];
@@ -15,7 +15,7 @@ export default function DayComponent({ shift }) {
     open ? setOpen(!open) : setOpen(true);
     return open;
   }
-  const [shiftChange, setShiftChange] = useState("");
+  const [shiftChange, setShiftChange] = useState("WHEREISTHIS");
 
   function changeShift() {
     console.log("CurrentShift: " + shiftChange);
@@ -54,12 +54,10 @@ position: relative;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
   height: 100%;
-  width: auto;
+  width: 90%;
   border-style: solid;
   text-align: center;
   font-weight: 800;
-
-  margin: 0;
   z-index: 20;
 `;
 const EditShift = styled.select`
@@ -83,9 +81,10 @@ const EditWindow = styled.div`
   font-size: 1vw;
   overflow: hidden;
   transform: all 0.3s;
-  translate: 3px -3px;
+  translate: 0px -1px;
   padding-left: 1vw;
   padding-right: 1vw;
+  padding-bottom: 2vh;
 `;
 
 const Heading = styled.h4`
@@ -96,5 +95,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  font-size: 1vw;
+  font-size: 2vw;
+  padding: 0px;
 `;
