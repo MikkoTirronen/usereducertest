@@ -18,14 +18,16 @@ export default function DayComponent({ shift, employeeIndex }) {
   const [shiftChange, setShiftChange] = useState("WHEREISTHIS");
 
   function changeShift() {
+    dispatch({type: "updateData", payload:{msg:"This is the current Payload"}})
+    console.log(state);
     console.log("CurrentShift: " + shiftChange);
   }
   return (
     <Container>
-      <ShiftContainer inputColor={getColor(`${shift}`, state.settings)}>
+      <ShiftContainer >
         <StyledButton onClick={handleEditToggle}>{shift}</StyledButton>
       </ShiftContainer>
-      <EditWindow open={open} inputColor={getColor(`${shift}`, state.settings)}>
+      {/* <EditWindow open={open} inputColor={getColor(`${shift}`, state.settings)}>
         <Heading>Edit</Heading>
         <p>Current shift: {shift}</p>
         <p>Change shift to: </p>
@@ -37,24 +39,24 @@ export default function DayComponent({ shift, employeeIndex }) {
           {state.settings.shiftColors.map((item) => {
             return <option value={item.shift}>{item.shift}</option>;
           })}
-        </EditShift>
+        </EditShift> 
         <br />
         <br />
         <button onClick={changeShift}>Change Shift</button>
-      </EditWindow>
+      </EditWindow>*/}
     </Container>
   );
 }
 
 const Container = styled.div`
-position: relative;
-  width: 100%;
+  position: relative;
+  width: 80%;
   height: 100%;
 `;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
   height: 100%;
-  width: 90%;
+  width: 1.9vw;
   border-style: solid;
   text-align: center;
   font-weight: 800;
@@ -95,6 +97,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  font-size: 2vw;
+  font-size: .7vw;
   padding: 0px;
 `;

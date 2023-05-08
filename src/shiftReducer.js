@@ -30,6 +30,7 @@ export const INITIALSTATE = {
   schedule: [
     {
       name: "Mikko Tirronen",
+      index: 1,
       shifts: [
         {
           week: 1,
@@ -112,7 +113,8 @@ export const INITIALSTATE = {
       ],
     },
     {
-      name: "Mikko Tirronen",
+      name: "Bob Saget",
+      index: 2,
       shifts: [
         {
           week: 1,
@@ -195,7 +197,8 @@ export const INITIALSTATE = {
       ],
     },
     {
-      name: "Mikko Tirronen",
+      name: "John Spencer",
+      index: 3,
       shifts: [
         {
           week: 1,
@@ -278,7 +281,8 @@ export const INITIALSTATE = {
       ],
     },
     {
-      name: "Mikko Tirronen",
+      name: "Jake Fourth",
+      index: 4,
       shifts: [
         {
           week: 1,
@@ -362,14 +366,20 @@ export const INITIALSTATE = {
     },
   ],
 };
-   export const shiftReducer = (state, action) => {
-        switch (action.type) {
-            case "CHANGEDATA":
-                return {
-                    ...state,
-                    shift: action.payload,
-                };
-            default:
-                return state;
-        }
-    };
+export const shiftReducer = (state, action) => {
+  switch (action.type) {
+    case "updateData":
+      const { msg } = action.payload;
+      return {
+        ...state,
+        schedule: state.schedule.map((item) => {
+          //if (item.day === day) {
+          //   return {...item, shift}
+          // }
+          return { ...item, msg };
+        }),
+      };
+    default:
+      return state;
+  }
+};

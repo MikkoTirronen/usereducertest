@@ -1,36 +1,43 @@
-import React from 'react'
-import WeekComponent from './WeekComponent'
-import styled from 'styled-components';
+import React from "react";
+import WeekComponent from "./WeekComponent";
+import styled from "styled-components";
 
-export default function SixWeekComponent({sixWeekData, sixWeekIndex}) {
+export default function SixWeekComponent({ sixWeekData, name, index }) {
   return (
-    <>
-      <EmployeeName>
-        Mikko Tirronen
-      </EmployeeName>
+    <OuterWrapper>
+      <EmployeeName>{sixWeekData.name}</EmployeeName>
       <Container>
-       {sixWeekData.map((item,index) => {
-         return <WeekComponent key={Math.random()} weekData={item.data} sixWeekIndex={sixWeekIndex}></WeekComponent>;
+        {sixWeekData.shifts.map((item) => {
+          return (
+            <WeekComponent
+              key={Math.random()}
+              weekData={item.data}
+            ></WeekComponent>
+          );
         })}
-    </Container>
-        </>
-    );
+      </Container>
+    </OuterWrapper>
+  );
 }
 const Container = styled.div`
+  float: left;
   display: grid;
-  text-align: center;
-  margin: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 90.7vw;
-  grid-column-gap: 1vw;
-  grid-row-gap: 1vh;
+  margin-left: 0.2vw;
+  grid-column-gap: .5vw;
+  grid-row-gap: 0.5vh;
 `;
 const EmployeeName = styled.div`
-border-style: solid;
-min-width: 90%;
-font-size: 1vw;
-text-align: right;
-padding-right: 1%;
-height: 98%;
-font-weight: 600;
-`
+  border-style: solid;
+  font-size: 1vw;
+  text-align: right;
+  padding-right: 1%;
+  height: 98%;
+  font-weight: 600;
+  width: 7vw;
+`;
+const OuterWrapper = styled.div`
+  width: 100vw;
+  display: flex;
+  text-align: center;
+`;
