@@ -2,13 +2,9 @@ import React, { useReducer, useState } from "react";
 import styled from "styled-components";
 import { shiftReducer, INITIALSTATE } from "../shiftReducer";
 
-export default function DayComponent({ shift, employeeIndex }) {
+export default function DayComponent({ shift, employeeIndex, dayIndex }) {
   const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
-  function getColor(shift, settings) {
-    var color = [...settings.shiftColors];
-    let newColor = color.find((item) => item.shift === `${shift}`).color;
-    return newColor;
-  }
+
   const [open, setOpen] = useState("");
   function handleEditToggle(e) {
     e.preventDefault();
@@ -18,13 +14,68 @@ export default function DayComponent({ shift, employeeIndex }) {
   const [shiftChange, setShiftChange] = useState("WHEREISTHIS");
 
   function changeShift() {
-    dispatch({type: "updateData", payload:{msg:"This is the current Payload"}})
+    dispatch({
+      type: "updateData",
+      payload: { msg: "This is the current Payload" },
+    });
     console.log(state);
     console.log("CurrentShift: " + shiftChange);
   }
+  function getColor(currentShift, dayIndex) {
+    var shiftColors = [
+      {
+        shift: ["A", "Tv","Johnny"],
+        color: "#fff00f",
+      },
+      {
+        shift: ["B", "LB", "Risk"],
+        color: "#CC99FF",
+      },
+      {
+        shift: ["C", "H52", "Vm", "Apo", "MAT", "Vätske"],
+        color: "#FF99CC",
+      },
+      {
+        shift: ["D", "Utb","adm"],
+        color: "#00B050",
+      },
+      {
+        shift: ["E"],
+        color: "#008000",
+      },
+      {
+        shift: ["Skåp", "Sop"],
+        color: "#F79646",
+      },
+      {
+        shift: ["F"],
+        color: "#CCFFFF",
+      },
+      {
+        shift: ["Sjuk", "SEM", "VAB", "Sem", "Flex"],
+        color: "#FF0000",
+      },
+    ];
+    let defaultColor;
+    (dayIndex === 5) | (dayIndex === 6)
+      ? (defaultColor = "#FFFF99")
+      : (defaultColor = "whitesmoke");
+    let plusOrMinusShift = currentShift;
+    if (plusOrMinusShift.endsWith("+") | plusOrMinusShift.endsWith("-")) {
+      plusOrMinusShift = plusOrMinusShift.replace(/[^a-zA-Z0-9åäöÅÄÖ]/g, "")
+    }
+    let newColor = shiftColors.find((item) =>
+      item.shift.includes(
+        plusOrMinusShift
+      ) 
+  
+    );
+        
+    return newColor ? newColor.color : defaultColor;
+  }
   return (
     <Container>
-      <ShiftContainer >
+      <ShiftContainer inputColor={getColor(`${shift}`, dayIndex)}>
         <StyledButton onClick={handleEditToggle}>{shift}</StyledButton>
       </ShiftContainer>
       {/* <EditWindow open={open} inputColor={getColor(`${shift}`, state.settings)}>
@@ -97,6 +148,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  font-size: .7vw;
+  font-size: 0.7vw;
   padding: 0px;
 `;

@@ -24,7 +24,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-left: 0.2vw;
-  grid-column-gap: .5vw;
+  grid-column-gap: 0.5vw;
   grid-row-gap: 0.5vh;
 `;
 const EmployeeName = styled.div`
@@ -35,6 +35,7 @@ const EmployeeName = styled.div`
   height: 98%;
   font-weight: 600;
   width: 7vw;
+  min-width: 150px;
 `;
 const OuterWrapper = styled.div`
   width: 100vw;

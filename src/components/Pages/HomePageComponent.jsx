@@ -1,18 +1,12 @@
 import React, { useReducer } from "react";
 import styled from "styled-components";
-
-import WeekComponent from "./WeekComponent";
-import { INITIALSTATE, shiftReducer } from "../shiftReducer";
-import SixWeekComponent from "./SixWeekComponent";
-import { greeting } from "../hello";
+import { INITIALSTATE, shiftReducer } from "../../shiftReducer";
+import SixWeekComponent from "../SixWeekComponent";
+import NavigationComponent from "../NavigationComponent";
 
 export default function HomePageComponent() {
   const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
 
-  function createDayObject(day, shift) {
-    const tempDay = { day: day, shift: shift };
-    return tempDay;
-  }
   function getMyNewData(myArray, fromValue, toValue, week) {
     const myWeekObject = { week: week, data: [] };
     const newData = myArray.slice(fromValue, toValue);
@@ -22,15 +16,6 @@ export default function HomePageComponent() {
     return myWeekObject;
   }
 
-  function getWeek(myArray) {
-    var tempEmployeeArray = { name: "", shifts: [] };
-
-    let myWeekObject = { week: 1, data: [] };
-    let input;
-
-    for (let index = 0; index < 7; index++) {}
-    console.log(getMyNewData(myArray, 1, 8));
-  }
   function getEmployeeData(myArray) {
     var tempEmployeeArray = { name: myArray[0], shifts: [] };
     let weekNumber = 1;
@@ -49,26 +34,9 @@ export default function HomePageComponent() {
       <HeaderContainer>
         <h1>Logistik Centrum</h1>
       </HeaderContainer>
-
+      <NavigationComponent></NavigationComponent>
       <Container>
-        {/* {data.map((item) => {
-          const employeeShifts = getData(item)
-          console.log(employeeShifts)
-        })} */}
-
-        {/* {state.schedule.map((item) => {
-          return (
-            <SixWeekComponent
-              key={Math.random()}
-              name={item.name}
-              index={item.index}
-              sixWeekData={item.shifts}
-            ></SixWeekComponent>
-          );
-        })} */}
-        {/* <SixWeekComponent week={state.schedule[1].shifts}></SixWeekComponent>
-        <SixWeekComponent week={state.schedule[2].shifts}></SixWeekComponent>
-        <SixWeekComponent week={state.schedule[3].shifts}></SixWeekComponent> */}
+ 
       </Container>
       {data.map((item) => {
         return (
@@ -576,7 +544,7 @@ export const data = [
     "Vätske",
     "Vätske",
     "Vätske",
-    "FrÖ╜v",
+    "Vätske-",
     "",
     "",
     "Vätske",
@@ -1467,7 +1435,7 @@ export const data = [
     "",
     "Skåp",
     "Skåp",
-    "Ö╜tv",
+    "Åtv",
     "Sjuk",
     "Sjuk",
     "",
@@ -1557,7 +1525,7 @@ export const data = [
     "",
     "Sop",
     "Sop",
-    "Sop-",
+    "Sop",
     "Sop",
     "Sop-",
     "",
@@ -1573,45 +1541,45 @@ export const data = [
     "Sop",
     "Sop",
     "Sop",
-    "Sop+",
+    "Sop",
     "",
     "",
   ],
   [
     "Tony S",
     "Sop",
-    "Sop+",
+    "Sop",
     "SEM",
+    "Sop",
+    "Sop",
+    "",
+    "",
+    "Sop",
+    "Sop",
+    "SEM",
+    "Sop",
+    "Sop",
+    "",
+    "",
+    "SEM",
+    "SEM",
+    "SEM",
+    "SEM",
+    "SEM",
+    "",
+    "",
+    "Sop",
+    "Sop",
+    "Sop",
     "Sop",
     "Sop",
     "",
     "",
     "Sop-",
     "Sop",
-    "SEM",
-    "Sop",
-    "Sop",
-    "",
-    "",
-    "SEM",
-    "SEM",
-    "SEM",
-    "SEM",
-    "SEM",
-    "",
-    "",
-    "Sop-",
     "Sop",
     "Sop",
     "Sop",
-    "Sop",
-    "",
-    "",
-    "Sop-",
-    "Sop",
-    "Sop",
-    "Sop-+",
-    "Sop-+",
     "",
     "",
     "Sop",
@@ -1619,8 +1587,6 @@ export const data = [
     "Sop",
     "Sop-",
     "Sjuk",
-    "",
-    "",
     "",
     "",
   ],
@@ -1671,46 +1637,46 @@ export const data = [
   ],
   [
     "Abdollah",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
     "",
     "",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
     "",
     "",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
     "",
     "",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
     "Sem",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
     "",
     "",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
     "",
     "",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
-    "Ö╜tv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
+    "Åtv",
     "",
     "",
   ],
