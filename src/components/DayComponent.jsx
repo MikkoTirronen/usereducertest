@@ -153,6 +153,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  font-size: ${(props) => props.textSize? "12px": "1rem"};
+  font-size: ${(props) => props.textSize? "12px": ".9rem"};
   padding: 0px;
 `;
