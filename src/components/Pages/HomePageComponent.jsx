@@ -35,9 +35,6 @@ export default function HomePageComponent() {
         <h1>Logistik Centrum</h1>
       </HeaderContainer>
       <NavigationComponent></NavigationComponent>
-      <Container>
- 
-      </Container>
       {data.map((item) => {
         return (
           <Container>
@@ -57,7 +54,7 @@ const Container = styled.div`
 `;
 const HeaderContainer = styled.div`
   text-align: center;
-  width: 100vw;
+  width: 100%;
 `;
 export const data = [
   [

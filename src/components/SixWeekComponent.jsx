@@ -21,6 +21,7 @@ export default function SixWeekComponent({ sixWeekData, name, index }) {
 }
 const Container = styled.div`
   float: left;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-left: 0.2vw;
@@ -29,16 +30,16 @@ const Container = styled.div`
 `;
 const EmployeeName = styled.div`
   border-style: solid;
-  font-size: 1vw;
+  font-size: 1em;
   text-align: right;
   padding-right: 1%;
   height: 98%;
   font-weight: 600;
-  width: 7vw;
-  min-width: 150px;
+  width: 7%;
+  min-width: 10%;
 `;
 const OuterWrapper = styled.div`
-  width: 100vw;
+  width: 99vw;
   display: flex;
   text-align: center;
 `;

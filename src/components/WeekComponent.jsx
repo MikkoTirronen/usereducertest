@@ -16,5 +16,5 @@ export default function WeekComponent({ weekData, sixWeekIndex }) {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 100%;
+ max-width: 14vw;
 `;

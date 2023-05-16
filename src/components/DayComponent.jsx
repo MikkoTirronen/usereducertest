@@ -24,7 +24,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
   function getColor(currentShift, dayIndex) {
     var shiftColors = [
       {
-        shift: ["A", "Tv","Johnny"],
+        shift: ["A", "Tv", "Johnny"],
         color: "#fff00f",
       },
       {
@@ -36,7 +36,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
         color: "#FF99CC",
       },
       {
-        shift: ["D", "Utb","adm"],
+        shift: ["D", "Utb", "adm"],
         color: "#00B050",
       },
       {
@@ -62,21 +62,26 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
       : (defaultColor = "whitesmoke");
     let plusOrMinusShift = currentShift;
     if (plusOrMinusShift.endsWith("+") | plusOrMinusShift.endsWith("-")) {
-      plusOrMinusShift = plusOrMinusShift.replace(/[^a-zA-Z0-9åäöÅÄÖ]/g, "")
+      plusOrMinusShift = plusOrMinusShift.replace(/[^a-zA-Z0-9åäöÅÄÖ]/g, "");
     }
     let newColor = shiftColors.find((item) =>
-      item.shift.includes(
-        plusOrMinusShift
-      ) 
-  
+      item.shift.includes(plusOrMinusShift)
     );
-        
+
     return newColor ? newColor.color : defaultColor;
+  }
+  function setShiftFontSize(currentShift) {
+    let shift = currentShift.shift
+    let isLongText = currentShift.shift.length > 4 ? true : false;
+    console.log(shift,isLongText, currentShift.shift.length)
+    return isLongText;
   }
   return (
     <Container>
       <ShiftContainer inputColor={getColor(`${shift}`, dayIndex)}>
-        <StyledButton onClick={handleEditToggle}>{shift}</StyledButton>
+        <StyledButton onClick={handleEditToggle} textSize={setShiftFontSize({shift})}>
+          {shift}
+        </StyledButton>
       </ShiftContainer>
       {/* <EditWindow open={open} inputColor={getColor(`${shift}`, state.settings)}>
         <Heading>Edit</Heading>
@@ -100,45 +105,45 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
 }
 
 const Container = styled.div`
-  position: relative;
-  width: 80%;
-  height: 100%;
+  //position: relative;
+  //width: 80%;
+  //height: 100%;
 `;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
   height: 100%;
-  width: 1.9vw;
+  width: 100%;
   border-style: solid;
-  text-align: center;
   font-weight: 800;
   z-index: 20;
+  max-width: 2vw;
 `;
-const EditShift = styled.select`
-  color: black;
-  text-align: center;
-  font-weight: 600;
-`;
+// const EditShift = styled.select`
+//   color: black;
+//   text-align: center;
+//   font-weight: 600;
+// `;
 
-const EditWindow = styled.div`
-  position: absolute;
-  border-top: none;
-  opacity: ${(props) => (props.open ? "1" : "0")};
-  padding-top: 0px;
-  text-align: center;
-  margin: 0px;
-  color: #0b0b0b;
-  width: 500%;
-  height: ${(props) => (props.open ? "fit-content" : "0")};
-  background-color: ${(props) => props.inputColor || "darkgrey"};
-  z-index: 20;
-  font-size: 1vw;
-  overflow: hidden;
-  transform: all 0.3s;
-  translate: 0px -1px;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  padding-bottom: 2vh;
-`;
+// const EditWindow = styled.div`
+//   position: absolute;
+//   border-top: none;
+//   opacity: ${(props) => (props.open ? "1" : "0")};
+//   padding-top: 0px;
+//   text-align: center;
+//   margin: 0px;
+//   color: #0b0b0b;
+//   width: 500%;
+//   height: ${(props) => (props.open ? "fit-content" : "0")};
+//   background-color: ${(props) => props.inputColor || "darkgrey"};
+//   z-index: 20;
+//   font-size: 1vw;
+//   overflow: hidden;
+//   transform: all 0.3s;
+//   translate: 0px -1px;
+//   padding-left: 1vw;
+//   padding-right: 1vw;
+//   padding-bottom: 2vh;
+// `;
 
 const Heading = styled.h4`
   margin: 0;
@@ -148,6 +153,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  font-size: 0.7vw;
+  font-size: ${(props) => props.textSize? "12px": "1rem"};
   padding: 0px;
 `;
