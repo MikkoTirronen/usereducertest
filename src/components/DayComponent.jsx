@@ -72,7 +72,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
   }
   function setShiftFontSize(currentShift) {
     let shift = currentShift.shift
-    let isLongText = currentShift.shift.length > 4 ? true : false;
+    let isLongText = currentShift.shift.length > 3 ? true : false;
     console.log(shift,isLongText, currentShift.shift.length)
     return isLongText;
   }
