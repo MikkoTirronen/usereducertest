@@ -73,8 +73,14 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
   function setShiftFontSize(currentShift) {
     let shift = currentShift.shift
     let isLongText = currentShift.shift.length > 3 ? true : false;
-    console.log(shift,isLongText, currentShift.shift.length)
-    return isLongText;
+    console.log(shift, isLongText, currentShift.shift.length)
+    let textSize = "1rem";
+    let textCheck = (20-currentShift.shift.length-3)
+    if (isLongText) {
+      textSize = `${textCheck> 10? textCheck: 10 }px`
+    }
+    console.log(textSize)
+    return textSize;
   }
   return (
     <Container>
@@ -153,6 +159,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  font-size: ${(props) => props.textSize? "12px": ".9rem"};
+  font-size: ${(props) => props.textSize};
   padding: 0px;
 `;
