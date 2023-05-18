@@ -40,8 +40,8 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
         color: "#00B050",
       },
       {
-        shift: ["E"],
-        color: "#008000",
+        shift: ["H"],
+        color: "#003380",
       },
       {
         shift: ["Skåp", "Sop"],
@@ -71,21 +71,24 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
     return newColor ? newColor.color : defaultColor;
   }
   function setShiftFontSize(currentShift) {
-    let shift = currentShift.shift
+    let shift = currentShift.shift;
     let isLongText = currentShift.shift.length > 3 ? true : false;
-    console.log(shift, isLongText, currentShift.shift.length)
+    console.log(shift, isLongText, currentShift.shift.length);
     let textSize = "1rem";
-    let textCheck = (20-currentShift.shift.length-3)
+    let textCheck = 20 - currentShift.shift.length - 3;
     if (isLongText) {
-      textSize = `${textCheck> 10? textCheck: 10 }px`
+      textSize = `${textCheck > 10 ? textCheck : 10}px`;
     }
-    console.log(textSize)
+    console.log(textSize);
     return textSize;
   }
   return (
     <Container>
       <ShiftContainer inputColor={getColor(`${shift}`, dayIndex)}>
-        <StyledButton onClick={handleEditToggle} textSize={setShiftFontSize({shift})}>
+        <StyledButton
+          onClick={handleEditToggle}
+          textSize={setShiftFontSize({ shift })}
+        >
           {shift}
         </StyledButton>
       </ShiftContainer>
