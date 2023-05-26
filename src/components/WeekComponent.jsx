@@ -3,12 +3,17 @@ import DayComponent from "./DayComponent";
 import styled from "styled-components";
 
 export default function WeekComponent({ weekData, sixWeekIndex }) {
-
   return (
-    <Container>
-      
+    <Container key={Math.random()}>
       {weekData.map((item, index) => {
-         return <DayComponent key={Math.random()} shift={item.shift} employeeIndex={sixWeekIndex} dayIndex={index}></DayComponent>;
+        return (
+          <DayComponent
+            key={Math.random()}
+            shift={item.shift}
+            employeeIndex={sixWeekIndex}
+            dayIndex={index}
+          ></DayComponent>
+        );
       })}
     </Container>
   );
@@ -16,5 +21,5 @@ export default function WeekComponent({ weekData, sixWeekIndex }) {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
- max-width: 14vw;
+  //max-width: 14vw;
 `;
