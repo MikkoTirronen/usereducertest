@@ -7,47 +7,24 @@ import NavigationComponent from "../NavigationComponent";
 export default function HomePageComponent() {
   const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
 
-  function getMyNewData(myArray, fromValue, toValue, week) {
-    const myWeekObject = { week: week, data: [] };
-    const newData = myArray.slice(fromValue, toValue);
-    newData.forEach((element, index) => {
-      myWeekObject.data.push({ day: index, shift: element });
-    });
-    return myWeekObject;
-  }
-
-  function getEmployeeData(myArray) {
-    var tempEmployeeArray = { name: myArray[0], shifts: [] };
-    let weekNumber = 1;
-    const numOfDays = 7;
-    for (let index = 1; index < myArray.length; index += numOfDays) {
-      tempEmployeeArray.shifts.push(
-        getMyNewData(myArray, index, index + numOfDays, weekNumber)
-      );
-      weekNumber++;
-    }
-    return tempEmployeeArray;
-  }
-
   return (
-    <>
+    <ScheduleWrapper>
       <HeaderContainer>
-        <h1>Logistik Centrum</h1>
+        Logistik Centrum
       </HeaderContainer>
       <NavigationComponent></NavigationComponent>
       {data.map((item) => {
-        return (
-          <Container>
-            <SixWeekComponent
-              sixWeekData={getEmployeeData(item)}
-            ></SixWeekComponent>
-          </Container>
-        );
+        if (item[0].charAt(0) === "*") {
+          return <SectionHeader>{item[0]}</SectionHeader>;
+        }
+        return <SixWeekComponent sixWeekData={getEmployeeData(item)} />;
       })}
-    </>
+    </ScheduleWrapper>
   );
 }
-const ScheduleWrapper = styled.div``;
+const ScheduleWrapper = styled.div`
+
+`;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 6fr;
@@ -55,10 +32,42 @@ const Container = styled.div`
 const HeaderContainer = styled.div`
   text-align: center;
   width: 100%;
+  font-size: 2.5em;
+  font-weight: 600;
 `;
+const SectionHeader = styled.div`
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+
+  margin-left: 10%;
+ 
+`;
+
+export function getMyNewData(myArray, fromValue, toValue, week) {
+  const myWeekObject = { week: week, data: [] };
+  const newData = myArray.slice(fromValue, toValue);
+  newData.forEach((element, index) => {
+    myWeekObject.data.push({ day: index, shift: element });
+  });
+  return myWeekObject;
+}
+
+export function getEmployeeData(myArray) {
+  var tempEmployeeArray = { name: myArray[0], shifts: [] };
+  let weekNumber = 1;
+  const numOfDays = 7;
+  for (let index = 1; index < myArray.length; index += numOfDays) {
+    tempEmployeeArray.shifts.push(
+      getMyNewData(myArray, index, index + numOfDays, weekNumber)
+    );
+    weekNumber++;
+  }
+  return tempEmployeeArray;
+}
 export const data = [
   [
-    "",
+    "Datum",
     "10",
     "11",
     "12",
@@ -148,7 +157,7 @@ export const data = [
     "SÖ",
   ],
   [
-    "Hus 52 VNS",
+    "*Hus 52 VNS",
     "",
     "",
     "",
@@ -328,7 +337,7 @@ export const data = [
     "",
   ],
   [
-    "Apotek",
+    "*Apotek",
     "",
     "",
     "",
@@ -463,7 +472,7 @@ export const data = [
     "",
   ],
   [
-    "Vätskevagnar",
+    "*Vätskevagnar",
     "",
     "",
     "",
@@ -553,7 +562,7 @@ export const data = [
     "",
   ],
   [
-    "Matvagnar + Lastbilen",
+    "*Matvagnar + Lastbilen",
     "",
     "",
     "",
@@ -643,7 +652,7 @@ export const data = [
     "",
   ],
   [
-    "Post och JIT",
+    "*Post och JIT",
     "",
     "",
     "",
@@ -1228,7 +1237,7 @@ export const data = [
     "",
   ],
   [
-    "Övrigt",
+    "*Övrigt",
     "",
     "",
     "",
@@ -1318,7 +1327,7 @@ export const data = [
     "",
   ],
   [
-    "",
+    "Datum",
     "10",
     "11",
     "12",
@@ -1858,7 +1867,7 @@ export const data = [
     "",
   ],
   [
-    "Textiller",
+    "*Textiller",
     "",
     "",
     "",
@@ -2443,7 +2452,7 @@ export const data = [
     "",
   ],
   [
-    "Serviceutvecklare",
+    "*Serviceutvecklare",
     "",
     "",
     "",
@@ -2533,7 +2542,7 @@ export const data = [
     "",
   ],
   [
-    "JIT-Admin",
+    "*JIT-Admin",
     "",
     "",
     "",
@@ -2623,7 +2632,7 @@ export const data = [
     "",
   ],
   [
-    "Administratör",
+    "*Administratör",
     "",
     "",
     "",
@@ -2713,7 +2722,7 @@ export const data = [
     "",
   ],
   [
-    "Ledning",
+    "*Ledning",
     "",
     "",
     "",
