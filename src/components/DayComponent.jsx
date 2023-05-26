@@ -1,26 +1,13 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { shiftReducer, INITIALSTATE } from "../shiftReducer";
 
 export default function DayComponent({ shift, employeeIndex, dayIndex }) {
-  // const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
-
   const [open, setOpen] = useState("");
   function handleEditToggle(e) {
     e.preventDefault();
     open ? setOpen(!open) : setOpen(true);
     return open;
   }
-  // const [shiftChange, setShiftChange] = useState("WHEREISTHIS");
-
-  // function changeShift() {
-  //   dispatch({
-  //     type: "updateData",
-  //     payload: { msg: "This is the current Payload" },
-  //   });
-  //   console.log(state);
-  //   console.log("CurrentShift: " + shiftChange);
-  // }
   function getColor(currentShift, dayIndex) {
     var shiftColors = [
       {
@@ -75,7 +62,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
     let textSize = ".7vw";
     let textCheck = currentShift.shift.length - 3;
     if (isLongText) {
-      textSize = `Calc(${textSize} - ${ textCheck*1 }px)`;
+      textSize = `Calc(${textSize} - ${textCheck * 1}px)`;
     }
     return textSize;
   }
@@ -160,8 +147,8 @@ const Heading = styled.h4`
   margin: 0;
 `;
 const StyledButton = styled.button`
-overflow: hidden;
-word-wrap: break-word;
+  overflow: hidden;
+  word-wrap: break-word;
   background: none;
   width: 100%;
   height: 100%;
