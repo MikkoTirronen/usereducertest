@@ -71,23 +71,24 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
     return newColor ? newColor.color : defaultColor;
   }
   function setShiftFontSize(currentShift) {
-    let shift = currentShift.shift;
-    let isLongText = currentShift.shift.length > 3 ? true : false;
-    //console.log(shift, isLongText, currentShift.shift.length);
-    let textSize = "1rem";
-    let textCheck = 20 - currentShift.shift.length - 3;
+    let isLongText = currentShift.shift.length > 2 ? true : false;
+    let textSize = ".7vw";
+    let textCheck = currentShift.shift.length - 3;
     if (isLongText) {
-      textSize = `${textCheck > 10 ? textCheck : 10}px`;
+      textSize = `Calc(${textSize} - ${ textCheck*1 }px)`;
     }
-    //console.log(textSize);
     return textSize;
   }
   return (
-    <Container>
-      <ShiftContainer inputColor={getColor(`${shift}`, dayIndex)}>
+    <Container key={Math.random()}>
+      <ShiftContainer
+        inputColor={getColor(`${shift}`, dayIndex)}
+        key={Math.random()}
+      >
         <StyledButton
           onClick={handleEditToggle}
           textSize={setShiftFontSize({ shift })}
+          key={Math.random()}
         >
           {shift}
         </StyledButton>
@@ -120,7 +121,6 @@ const Container = styled.div`
 `;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
-  
   margin-bottom: 1px;
   border-style: solid;
   font-weight: 800;
@@ -160,6 +160,8 @@ const Heading = styled.h4`
   margin: 0;
 `;
 const StyledButton = styled.button`
+overflow: hidden;
+word-wrap: break-word;
   background: none;
   width: 100%;
   height: 100%;
