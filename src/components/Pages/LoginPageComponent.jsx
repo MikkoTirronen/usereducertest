@@ -1,7 +1,10 @@
-import React from 'react'
-import NavigationComponent from '../NavigationComponent'
+import React from "react";
+import NavigationComponent from "../NavigationComponent";
+import HeaderComponent from "../HeaderComponent";
 export default function LoginPageComponent() {
   return (
-    <><div>LoginPageComponent</div><NavigationComponent></NavigationComponent></>
-  )
+    <>
+      <HeaderComponent header={"Login"} />
+    </>
+  );
 }

@@ -1,45 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-
 import SixWeekComponent from "../SixWeekComponent";
-import NavigationComponent from "../NavigationComponent";
 import { data } from "../../pseudoData";
+import HeaderComponent from "../HeaderComponent";
 
 export default function HomePageComponent() {
   //const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
 
   return (
     <>
-      <NavigationComponent></NavigationComponent>
-      <ScheduleWrapper>
-        <HeaderContainer>Logistik Centrum</HeaderContainer>
-
-        {data.map((item, index) => {
-          if (item[0].charAt(0) === "*") {
-            return <SectionHeader key={Math.random()}>{item[0]}</SectionHeader>;
-          }
-          return (
-            <SixWeekComponent
-              key={Math.random()}
-              sixWeekData={getEmployeeData(item)}
-            />
-          );
-        })}
-      </ScheduleWrapper>
+      <HeaderComponent header={"Logistik Centrum"}></HeaderComponent>
+      {data.map((item, index) => {
+        if (item[0].charAt(0) === "*") {
+          return <SectionHeader key={Math.random()}>{item[0]}</SectionHeader>;
+        }
+        return (
+          <SixWeekComponent
+            key={Math.random()}
+            sixWeekData={getEmployeeData(item)}
+          />
+        );
+      })}
     </>
   );
 }
-const ScheduleWrapper = styled.div``;
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 0.5fr 6fr;
-`;
-const HeaderContainer = styled.div`
-  text-align: center;
-  width: 100%;
-  font-size: 2.5em;
-  font-weight: 600;
-`;
+
 const SectionHeader = styled.div`
   text-align: center;
   font-size: 1.5em;
