@@ -3,17 +3,33 @@ import WeekComponent from "./WeekComponent";
 import styled from "styled-components";
 
 export default function SixWeekComponent({ sixWeekData, name, index }) {
+  function renderEmployeeName(data) {
+    const upperCaseName = data.name.toUpperCase();
+    if (data.name !== "") {
+      return <EmployeeName>{upperCaseName}</EmployeeName>;
+    } else {
+     
+
+      return<EmptyDiv></EmptyDiv>;
+    }
+  }
   return (
     <OuterWrapper>
-      <EmployeeName>{sixWeekData.name}</EmployeeName>
+      {/* <EmployeeName>{sixWeekData.name}</EmployeeName> */}
+      {renderEmployeeName(sixWeekData)}
       <Container>
         {sixWeekData.shifts.map((item) => {
-          return (
-            <WeekComponent
-              key={Math.random()}
-              weekData={item.data}
-            ></WeekComponent>
-          );
+          if (item.data[0].shift.includes("Vecka")) {
+            return <WeekHeader>{item.data[0].shift}</WeekHeader>;
+          } else
+            return (
+              <>
+                <WeekComponent
+                  key={Math.random()}
+                  weekData={item.data}
+                ></WeekComponent>
+              </>
+            );
         })}
       </Container>
     </OuterWrapper>
@@ -29,11 +45,11 @@ const Container = styled.div`
   grid-row-gap: 0.5vh;
 `;
 const EmployeeName = styled.div`
-  border-style: solid;
+  background-color: #ffff99;
   font-size: 1em;
   text-align: right;
   padding-right: 1%;
-  height: 98%;
+  height: 100%;
   font-weight: 600;
   width: 7%;
   min-width: 10%;
@@ -43,3 +59,17 @@ const OuterWrapper = styled.div`
   display: flex;
   text-align: center;
 `;
+
+const EmptyDiv = styled.div`
+ 
+  font-size: 1em;
+  text-align: right;
+  padding-right: 1%;
+  height: 100%;
+  font-weight: 600;
+  width: 7%;
+  min-width: 10%;
+ 
+`;
+
+const WeekHeader = styled.div``;
