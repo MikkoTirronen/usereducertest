@@ -9,25 +9,26 @@ export default function HomePageComponent() {
 
   return (
     <ScheduleWrapper>
-      <HeaderContainer>
-        Logistik Centrum
-      </HeaderContainer>
+      <HeaderContainer>Logistik Centrum</HeaderContainer>
       <NavigationComponent></NavigationComponent>
-      {data.map((item) => {
+      {data.map((item, index) => {
         if (item[0].charAt(0) === "*") {
-          return <SectionHeader>{item[0]}</SectionHeader>;
+          return <SectionHeader key={Math.random()}>{item[0]}</SectionHeader>;
         }
-        return <SixWeekComponent sixWeekData={getEmployeeData(item)} />;
+        return (
+          <SixWeekComponent
+            key={Math.random()}
+            sixWeekData={getEmployeeData(item)}
+          />
+        );
       })}
     </ScheduleWrapper>
   );
 }
-const ScheduleWrapper = styled.div`
-
-`;
+const ScheduleWrapper = styled.div``;
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: .5fr 6fr;
 `;
 const HeaderContainer = styled.div`
   text-align: center;
@@ -39,9 +40,7 @@ const SectionHeader = styled.div`
   text-align: center;
   font-size: 1.5em;
   font-weight: 600;
-
   margin-left: 10%;
- 
 `;
 
 export function getMyNewData(myArray, fromValue, toValue, week) {
@@ -65,7 +64,51 @@ export function getEmployeeData(myArray) {
   }
   return tempEmployeeArray;
 }
-export const data = [
+export const data = [[
+    "",
+    "Vecka 2 Januari",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Vecka 3 Januari",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Vecka 4 Januari",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Vecka 5 Januari/Februari",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Vecka 6 Februari",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Vecka 7 Februari",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ],
   [
     "Datum",
     "10",
