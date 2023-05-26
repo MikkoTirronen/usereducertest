@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { shiftReducer, INITIALSTATE } from "../shiftReducer";
 
 export default function DayComponent({ shift, employeeIndex, dayIndex }) {
-  const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
+  // const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
 
   const [open, setOpen] = useState("");
   function handleEditToggle(e) {
@@ -11,16 +11,16 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
     open ? setOpen(!open) : setOpen(true);
     return open;
   }
-  const [shiftChange, setShiftChange] = useState("WHEREISTHIS");
+  // const [shiftChange, setShiftChange] = useState("WHEREISTHIS");
 
-  function changeShift() {
-    dispatch({
-      type: "updateData",
-      payload: { msg: "This is the current Payload" },
-    });
-    console.log(state);
-    console.log("CurrentShift: " + shiftChange);
-  }
+  // function changeShift() {
+  //   dispatch({
+  //     type: "updateData",
+  //     payload: { msg: "This is the current Payload" },
+  //   });
+  //   console.log(state);
+  //   console.log("CurrentShift: " + shiftChange);
+  // }
   function getColor(currentShift, dayIndex) {
     var shiftColors = [
       {
@@ -32,7 +32,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
         color: "#CC99FF",
       },
       {
-        shift: ["C", "H52", "Vm", "Apo", "MAT", "Vätske"],
+        shift: ["C", "H52", "Vm", "Apo", "MAT", "Vätske", "Åtv"],
         color: "#FF99CC",
       },
       {
@@ -41,7 +41,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
       },
       {
         shift: ["H"],
-        color: "#003380",
+        color: "#4b77c4",
       },
       {
         shift: ["Skåp", "Sop"],
@@ -73,13 +73,13 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
   function setShiftFontSize(currentShift) {
     let shift = currentShift.shift;
     let isLongText = currentShift.shift.length > 3 ? true : false;
-    console.log(shift, isLongText, currentShift.shift.length);
+    //console.log(shift, isLongText, currentShift.shift.length);
     let textSize = "1rem";
     let textCheck = 20 - currentShift.shift.length - 3;
     if (isLongText) {
       textSize = `${textCheck > 10 ? textCheck : 10}px`;
     }
-    console.log(textSize);
+    //console.log(textSize);
     return textSize;
   }
   return (
@@ -120,12 +120,14 @@ const Container = styled.div`
 `;
 const ShiftContainer = styled.div`
   background-color: ${(props) => props.inputColor || "whitesmoke"};
-  height: 100%;
-  width: 100%;
+  
+  margin-bottom: 1px;
   border-style: solid;
   font-weight: 800;
   z-index: 20;
   max-width: 2vw;
+  min-width: 100%;
+  min-height: 100%;
 `;
 // const EditShift = styled.select`
 //   color: black;
