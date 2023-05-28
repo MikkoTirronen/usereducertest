@@ -8,7 +8,7 @@ export default function HomePageComponent() {
   //const [state, dispatch] = useReducer(shiftReducer, INITIALSTATE);
 
   return (
-    <>
+    <Container>
       <HeaderComponent header={"Logistik Centrum"}></HeaderComponent>
       {data.map((item, index) => {
         if (item[0].charAt(0) === "*") {
@@ -21,15 +21,21 @@ export default function HomePageComponent() {
           />
         );
       })}
-    </>
+    </Container>
   );
 }
 
+const Container = styled.div`
+
+background-color: #666e79; 
+`;
+
 const SectionHeader = styled.div`
   text-align: center;
-  font-size: 1.5em;
-  font-weight: 600;
+  font-size: 1vw;
+  font-weight: 700;
   margin-left: 10%;
+  color: whitesmoke
 `;
 
 export function getMyNewData(myArray, fromValue, toValue, week) {

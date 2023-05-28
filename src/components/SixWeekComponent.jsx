@@ -50,11 +50,15 @@ const EmployeeName = styled.div`
   height: 100%;
   font-weight: 600;
   min-width: 110px;
-`;
+  border-radius: 15px 0px 0px 15px;
+  padding-right: 4px;
+  margin-top: auto;
+  `;
 const OuterWrapper = styled.div`
   width: 99vw;
   display: flex;
   text-align: center;
+  height: 100%;
 `;
 
 const EmptyDiv = styled.div`
@@ -67,5 +71,7 @@ const EmptyDiv = styled.div`
 `;
 
 const WeekHeader = styled.div`
-font-size: 1vw;
+font-size: .75vw;
+color: whitesmoke;
+font-weight: 600;
 `;
