@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { shiftColors } from "./Pages/HomePageComponent";
 
-export default function DayComponent({ shift, employeeIndex, dayIndex }) {
+export default function DayComponent({ shift, dayIndex, shiftOptions }) {
+  const [shiftChange, setShiftChange] = useState("");
   const [open, setOpen] = useState("");
+
+  function changeShift(e) {
+    e.preventDefault();
+  }
   function handleEditToggle(e) {
     e.preventDefault();
     open ? setOpen(!open) : setOpen(true);
     return open;
   }
   function getColor(currentShift, dayIndex) {
-    
     let defaultColor;
     (dayIndex === 5) | (dayIndex === 6)
       ? (defaultColor = "#FFFF99")
@@ -47,7 +52,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
           {shift}
         </StyledButton>
       </ShiftContainer>
-      {/* <EditWindow open={open} inputColor={getColor(`${shift}`, state.settings)}>
+      <EditWindow open={open} inputColor={getColor(`${shift}`, shiftColors)}>
         <Heading>Edit</Heading>
         <p>Current shift: {shift}</p>
         <p>Change shift to: </p>
@@ -56,14 +61,14 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
           onChange={(e) => setShiftChange(e.target.value)}
         >
           <option value="">Choose Shift</option>
-          {state.settings.shiftColors.map((item) => {
-            return <option value={item.shift}>{item.shift}</option>;
+          {shiftOptions.map((item) => {
+            return <option value={item}>{item}</option>
           })}
-        </EditShift> 
+        </EditShift>
         <br />
         <br />
         <button onClick={changeShift}>Change Shift</button>
-      </EditWindow>*/}
+      </EditWindow>
     </Container>
   );
 }
@@ -83,32 +88,35 @@ const ShiftContainer = styled.div`
   min-width: 100%;
   min-height: 100%;
 `;
-// const EditShift = styled.select`
-//   color: black;
-//   text-align: center;
-//   font-weight: 600;
-// `;
+const EditShift = styled.select`
+  color: black;
+  text-align: center;
+  font-weight: 600;
+  width: 50%;
+  height: auto;
+`;
 
-// const EditWindow = styled.div`
-//   position: absolute;
-//   border-top: none;
-//   opacity: ${(props) => (props.open ? "1" : "0")};
-//   padding-top: 0px;
-//   text-align: center;
-//   margin: 0px;
-//   color: #0b0b0b;
-//   width: 500%;
-//   height: ${(props) => (props.open ? "fit-content" : "0")};
-//   background-color: ${(props) => props.inputColor || "darkgrey"};
-//   z-index: 20;
-//   font-size: 1vw;
-//   overflow: hidden;
-//   transform: all 0.3s;
-//   translate: 0px -1px;
-//   padding-left: 1vw;
-//   padding-right: 1vw;
-//   padding-bottom: 2vh;
-// `;
+const EditWindow = styled.div`
+  position: absolute;
+  border-top: none;
+  display: ${(props) => (props.open ? "block": "none")};
+  opacity: ${(props) => (props.open ? "1" : "0")};
+  padding-top: 0px;
+  text-align: center;
+  margin: 0px;
+  color: #0b0b0b;
+  width: 25%;
+  height: ${(props) => (props.open ? "fit-content" : "0")};
+  background-color: ${(props) => props.inputColor || "darkgrey"};
+  z-index: 20;
+  font-size: 1vw;
+  overflow: hidden;
+  transform: all 0.3s;
+  translate: 0px -1px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 2vh;
+`;
 
 const Heading = styled.h4`
   margin: 0;
@@ -123,38 +131,3 @@ const StyledButton = styled.button`
   font-size: ${(props) => props.textSize};
   padding: 0px;
 `;
-
-export var shiftColors = [
-  {
-    shift: ["A", "Tv", "Johnny"],
-    color: "#fff00f",
-  },
-  {
-    shift: ["B", "LB", "Risk"],
-    color: "#CC99FF",
-  },
-  {
-    shift: ["C", "H52", "Vm", "Apo", "MAT", "Vätske", "Åtv"],
-    color: "#FF99CC",
-  },
-  {
-    shift: ["D", "Utb", "adm"],
-    color: "#00B050",
-  },
-  {
-    shift: ["H"],
-    color: "#4b77c4",
-  },
-  {
-    shift: ["Skåp", "Sop"],
-    color: "#F79646",
-  },
-  {
-    shift: ["F"],
-    color: "#CCFFFF",
-  },
-  {
-    shift: ["Sjuk", "SEM", "VAB", "Sem", "Flex"],
-    color: "#FF0000",
-  },
-];

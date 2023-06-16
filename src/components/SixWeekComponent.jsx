@@ -2,7 +2,9 @@ import React from "react";
 import WeekComponent from "./WeekComponent";
 import styled from "styled-components";
 
-export default function SixWeekComponent({ sixWeekData, name, index }) {
+export default function SixWeekComponent({ sixWeekData, shiftOptions }) {
+  
+  
   function renderEmployeeName(data) {
     const upperCaseName = data.name.toUpperCase();
     if (data.name !== "") {
@@ -26,6 +28,7 @@ export default function SixWeekComponent({ sixWeekData, name, index }) {
                 <WeekComponent
                   key={Math.random()}
                   weekData={item.data}
+                  shiftOptions={shiftOptions}
                 ></WeekComponent>
               </>
             );
@@ -53,7 +56,7 @@ const EmployeeName = styled.div`
   border-radius: 15px 0px 0px 15px;
   padding-right: 4px;
   margin-top: auto;
-  `;
+`;
 const OuterWrapper = styled.div`
   width: 99vw;
   display: flex;
@@ -71,7 +74,7 @@ const EmptyDiv = styled.div`
 `;
 
 const WeekHeader = styled.div`
-font-size: .75vw;
-color: whitesmoke;
-font-weight: 600;
+  font-size: 0.75vw;
+  color: whitesmoke;
+  font-weight: 600;
 `;

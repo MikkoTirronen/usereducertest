@@ -2,7 +2,7 @@ import React from "react";
 import HeaderComponent from "../HeaderComponent";
 
 import styled from "styled-components";
-import { shiftColors } from "../DayComponent";
+import { shiftColors } from "./HomePageComponent";
 
 export default function SettingsPageComponent() {
  

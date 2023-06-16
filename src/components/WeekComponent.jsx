@@ -2,7 +2,7 @@ import React from "react";
 import DayComponent from "./DayComponent";
 import styled from "styled-components";
 
-export default function WeekComponent({ weekData, sixWeekIndex }) {
+export default function WeekComponent({ weekData, sixWeekIndex, shiftOptions }) {
   return (
     <Container key={Math.random()}>
       {weekData.map((item, index) => {
@@ -12,6 +12,7 @@ export default function WeekComponent({ weekData, sixWeekIndex }) {
             shift={item.shift}
             employeeIndex={sixWeekIndex}
             dayIndex={index}
+            shiftOptions={shiftOptions}
           ></DayComponent>
         );
       })}
