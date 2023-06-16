@@ -9,40 +9,7 @@ export default function DayComponent({ shift, employeeIndex, dayIndex }) {
     return open;
   }
   function getColor(currentShift, dayIndex) {
-    var shiftColors = [
-      {
-        shift: ["A", "Tv", "Johnny"],
-        color: "#fff00f",
-      },
-      {
-        shift: ["B", "LB", "Risk"],
-        color: "#CC99FF",
-      },
-      {
-        shift: ["C", "H52", "Vm", "Apo", "MAT", "Vätske", "Åtv"],
-        color: "#FF99CC",
-      },
-      {
-        shift: ["D", "Utb", "adm"],
-        color: "#00B050",
-      },
-      {
-        shift: ["H"],
-        color: "#4b77c4",
-      },
-      {
-        shift: ["Skåp", "Sop"],
-        color: "#F79646",
-      },
-      {
-        shift: ["F"],
-        color: "#CCFFFF",
-      },
-      {
-        shift: ["Sjuk", "SEM", "VAB", "Sem", "Flex"],
-        color: "#FF0000",
-      },
-    ];
+    
     let defaultColor;
     (dayIndex === 5) | (dayIndex === 6)
       ? (defaultColor = "#FFFF99")
@@ -156,3 +123,38 @@ const StyledButton = styled.button`
   font-size: ${(props) => props.textSize};
   padding: 0px;
 `;
+
+export var shiftColors = [
+  {
+    shift: ["A", "Tv", "Johnny"],
+    color: "#fff00f",
+  },
+  {
+    shift: ["B", "LB", "Risk"],
+    color: "#CC99FF",
+  },
+  {
+    shift: ["C", "H52", "Vm", "Apo", "MAT", "Vätske", "Åtv"],
+    color: "#FF99CC",
+  },
+  {
+    shift: ["D", "Utb", "adm"],
+    color: "#00B050",
+  },
+  {
+    shift: ["H"],
+    color: "#4b77c4",
+  },
+  {
+    shift: ["Skåp", "Sop"],
+    color: "#F79646",
+  },
+  {
+    shift: ["F"],
+    color: "#CCFFFF",
+  },
+  {
+    shift: ["Sjuk", "SEM", "VAB", "Sem", "Flex"],
+    color: "#FF0000",
+  },
+];
