@@ -94,7 +94,7 @@ export default function NavigationComponent() {
 }
 
 const Navigation = styled.div`
-  width: 100%;
+  width: 50%;
   display: block;
   position: relative;
   flex-direction: column;
