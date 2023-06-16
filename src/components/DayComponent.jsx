@@ -6,13 +6,14 @@ export default function DayComponent({ shift, dayIndex, shiftOptions }) {
   const [shiftChange, setShiftChange] = useState("");
   const [open, setOpen] = useState("");
 
-  function changeShift(e) {
-    e.preventDefault();
-  }
   function handleEditToggle(e) {
     e.preventDefault();
     open ? setOpen(!open) : setOpen(true);
     return open;
+  }
+  function changeShift(e) {
+    e.preventDefault();
+    handleEditToggle(e);
   }
   function getColor(currentShift, dayIndex) {
     let defaultColor;
@@ -62,7 +63,7 @@ export default function DayComponent({ shift, dayIndex, shiftOptions }) {
         >
           <option value="">Choose Shift</option>
           {shiftOptions.map((item) => {
-            return <option value={item}>{item}</option>
+            return <option value={item}>{item}</option>;
           })}
         </EditShift>
         <br />
