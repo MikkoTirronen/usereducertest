@@ -93,7 +93,7 @@ const EditShift = styled.select`
   color: black;
   text-align: center;
   font-weight: 600;
-  width: 50%;
+  width: 75%;
   height: auto;
 `;
 
@@ -106,7 +106,7 @@ const EditWindow = styled.div`
   text-align: center;
   margin: 0px;
   color: #0b0b0b;
-  width: 25%;
+  width: 15%;
   height: ${(props) => (props.open ? "fit-content" : "0")};
   background-color: ${(props) => props.inputColor || "darkgrey"};
   z-index: 20;
