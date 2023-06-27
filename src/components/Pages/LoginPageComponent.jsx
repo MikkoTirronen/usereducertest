@@ -17,6 +17,10 @@ export default function LoginPageComponent() {
             <br></br>
             <button type="submit">Login</button>
           </form>
+          <CreateAccount>
+            <br></br>
+            <a href="/">Create Account</a>
+</CreateAccount>
         </LoginContainer>
       </InnerWrapper>
     </Wrapper>
@@ -34,6 +38,8 @@ const InnerWrapper = styled.div`
 `;
 
 const LoginContainer = styled.div`
+position: relative;
+display: flex;
   border-style: solid;
   padding: 50px 50px;
   text-align: center;
@@ -41,4 +47,10 @@ const LoginContainer = styled.div`
   grid-column-start: 2;
   grid-row-start: 2;
   background-color: skyblue;
+  height: 60%;
 `;
+
+const CreateAccount = styled.span`
+font-weight: 700;
+font-size: small;
+`
